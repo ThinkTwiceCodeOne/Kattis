@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	int n,m;
+	cin>>n>>m;
+	vector<int> v(n+1);
+	for(int i=1;i<=n;i++) v[i]=i;
+	while(m--)
+	{
+		string s1,s2;
+		cin>>s1>>s2;
+		int i=stoi(s1.substr(1));
+		int j=stoi(s2.substr(1));
+		int indi=find(v.begin(),v.end(),i)-v.begin();
+		int indj=find(v.begin(),v.end(),j)-v.begin();
+		if(indi>indj)
+		{
+			int temp=j;
+			for(int ii=indj+1;ii<=indi;ii++) 
+			{
+				v[ii-1]=v[ii];
+			}
+			v[indi]=temp;
+		}
+
+	}
+	for(int i=1;i<v.size();i++) cout<<"T"<<v[i]<<" ";
+	cout<<endl;
+	return 0;
+}
