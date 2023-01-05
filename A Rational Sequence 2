@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+int solve(int k,int a,int b)
+{
+	if(a==1 && b==1) return 1;
+	if(a>b) return 1+2*solve(k,a-b,b);
+	else return 2*solve(k,a,b-a);
+}
+int main()
+{
+	int t;
+	cin>>t;
+	while(t--)
+	{
+		int k;
+		int a,b;
+		char c;
+		cin>>k>>a>>c>>b;
+		cout<<k<<" "<<solve(k,a,b)<<endl;
+	}
+	return 0;
+}
